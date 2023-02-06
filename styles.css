@@ -1,7 +1,16 @@
-h1 {
-    color: blue;
+.navbar{
+    background-color: bisque;
+    position: relative;
+    height: 10rem;
+}
+
+.logoHome{
+    width: 30rem;
+    position: absolute;
+    top: -2.5rem;
     
 }
+
 
 /* CSS rules to specify families
 font-family: 'Merriweather', serif;
