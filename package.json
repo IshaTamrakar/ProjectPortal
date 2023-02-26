@@ -1,0 +1,14 @@
+{
+  "name": "projectportal",
+  "version": "1.0.0",
+  "description": "Training and placement portal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Isha Tamrakar",
+  "license": "ISC",
+  "dependencies": {
+    "country-name-generator": "^1.0.4"
+  }
+}
