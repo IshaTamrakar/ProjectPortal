@@ -9,6 +9,7 @@
   "author": "Isha Tamrakar",
   "license": "ISC",
   "dependencies": {
-    "country-name-generator": "^1.0.4"
+    "country-name-generator": "^1.0.4",
+    "express": "^4.18.2"
   }
 }
