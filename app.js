@@ -21,7 +21,13 @@ async function main(){
 console.log("Server connected");
 
 const studentSchema = new mongoose.Schema({
-    _enrolmentNumber: String,
+    _id: false,
+    enrolmentNumber:{
+        type: String,
+        unique: true,
+        index: true,
+        required: true
+    },
     name: {
         type: String,
         required: true
@@ -46,7 +52,7 @@ const studentSchema = new mongoose.Schema({
 const Student = new mongoose.model('Student' , studentSchema);
 
 const demo = new Student({
-    _enrolmentNumber: "2019BCSE047",
+    enrolmentNumber: "2019BCSE007",
     name: "Isha Tamrakar",
     Department: "Computer Science Engineering",
     Batch: 2019,
