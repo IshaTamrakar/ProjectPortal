@@ -21,13 +21,13 @@ async function main(){
 console.log("Server connected");
 
 const studentSchema = new mongoose.Schema({
-    _id: false,
-    enrolmentNumber:{
-        type: String,
-        unique: true,
-        index: true,
-        required: true
-    },
+    _id: String,
+    // enrolmentNumber:{
+    //     type: String,
+    //     unique: true,
+    //     index: true,
+    //     required: true
+    // },
     name: {
         type: String,
         required: true
@@ -52,7 +52,7 @@ const studentSchema = new mongoose.Schema({
 const Student = new mongoose.model('Student' , studentSchema);
 
 const demo = new Student({
-    enrolmentNumber: "2019BCSE007",
+    _id: "2019BCSE047",
     name: "Isha Tamrakar",
     Department: "Computer Science Engineering",
     Batch: 2019,
@@ -62,7 +62,7 @@ const demo = new Student({
     contactnumber: 6263272143
 })
 
-demo.save()
+// demo.save()
 
 app.get("/", function(req,res){
     res.render('home');
