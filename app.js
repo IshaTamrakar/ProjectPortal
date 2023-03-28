@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended: true})) //parse data that comes from html 
 app.use(express.json()) //to parse the incoming requests with json payloads
 
 //to access static files
-app.use(express.static("public"))
+app.use(express.static(__dirname + "/public"))
 
 ///////////////////////////////////////////////////////////////////
 async function main(){
@@ -21,55 +21,74 @@ async function main(){
 console.log("Server connected");
 
 const studentSchema = new mongoose.Schema({
-    _id: String,
-    // enrolmentNumber:{
-    //     type: String,
-    //     unique: true,
-    //     index: true,
-    //     required: true
-    // },
-    name: {
+    fname: {
         type: String,
         required: true
     },
-    Department: {
+    lname: {
+        type: String,
+        required: true
+    },
+    _enrollment:{
+        type: String,
+        unique: true,
+        index: true,
+        required: true
+    },
+    department: {
         type: String,
         enum: ['Computer Science Engineering', 'Electronics and Communication Engineering' , 'Electrical Engineering' , 'Chemical Engineering' , 'Information Technology' , 'Mechanical Engineering' , 'Metallurgical and Materials Science' , 'Civil Engineering']
     },
-    Batch: {
-        type: Number,
-        enum: [2019,2020,2021,2022]
+    batch: {
+        type: String,
+        enum: ["2019","2020","2021","2022"]
     },
-    currentStatus: {
+    status: {
         type: String,
         enum: ['Permanently blocked' , 'Blocked till L-U' , 'Blocked till L-11' , 'Unblocked']
     },
-    emailID: String,
-    resumeLink: String,
-    contactnumber: Number
+    contact: String,
+    email: String,
+    resumeLink: String
 })
 
 const Student = new mongoose.model('Student' , studentSchema);
 
 const demo = new Student({
-    _id: "2019BCSE047",
-    name: "Isha Tamrakar",
-    Department: "Computer Science Engineering",
-    Batch: 2019,
-    currentStatus: "Unblocked",
-    emailID: "ishatamrakar54@gmail.com",
-    resumelink: "",
-    contactnumber: 6263272143
+    fname: "Isha",
+    lname: "Tamrakar",
+    _enrollment: "2019BCSE047",
+    department: "Computer Science Engineering",
+    batch: "2019",
+    status: "Unblocked",
+    contact: "6263272143",
+    email: "ishatamrakar54@gmail.com",
+    resumelink: ""
 })
 
-// demo.save()
+
+// demo.save();
 
 app.get("/", function(req,res){
-    res.render('home');
+    res.render("home");
 });
 
 app.post("/", function(req,res){
     
+})
+
+app.get("/studentData" , function(req,res){
+
+})
+
+app.post("/studentData" , function(req,res){
+    console.log(req.body);
+    var data = new Student(req.body);
+    data.save() . then(item=>{
+        res.render("studentData");
+    }) .catch (err=>{
+        res.status(400).send("Enrollment already saved in database");
+    })
 })
 
 app.listen(3000, function(){

@@ -23,6 +23,8 @@ label {
   font-family: 'Roboto', sans-serif;
   padding: 12px 12px 12px 0;
   display: inline-block;
+  font-weight: bold;
+  color: rgb(49, 45, 45);
 }
 
 input[type=submit] {
