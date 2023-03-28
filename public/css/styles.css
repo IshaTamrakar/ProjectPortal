@@ -3,11 +3,10 @@
 }
 
 h1{
-    font-family: 'Merriweather', serif; 
+  font-family: 'Roboto', serif;
     font-size: 25pt;         
     font-style: normal; 
     font-weight: bold; 
-    color:SlateBlue;
     text-align: center; 
     text-decoration: underline
   }
