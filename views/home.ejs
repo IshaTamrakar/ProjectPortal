@@ -6,65 +6,112 @@
     <br>
     <div class="container">
         <form action="" method="post">
-            <label for="fname">First Name:  </label>
-            <input type="text" id="fname" name="fname"> 
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">First Name:  </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="fname"> 
+                </div>
+            </div>
             <br>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Last Name:  </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" name="lname"> 
+                </div>
+            </div>
             <br>
-            <label for="lname">Last Name:  </label>
-            <input type="text" id="lname" name="lname"> 
+            <div class="row">
+                <div class="col-25">
+                    <label for="enrollment">Enrollment:  </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="enrollment" name="enrollment">
+                </div>
+            </div>
             <br>
+            <div class="row">
+                <div class="col-25">
+                    <label for="department">Department:  </label>
+                </div>
+                <div class="col-75">
+                    <select name="department" id="department">
+                        <option value="-1">Choose</option>
+                        <option value="Chemical Engineering">Chemical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Metallurgical and Materials Science">Metallurgical and Materials Engineering</option>
+                    </select>
+                </div>
+            </div>
             <br>
-            <label for="enrollment">Enrollment:  </label>
-            <input type="text" id="enrollment" name="enrollment">
+            <div class="row">
+                <div class="col-25">
+                    <label for="batch">Batch:  </label>
+                </div>
+                <div class="col-75">
+                    <select name="batch" id="batch">
+                        <option value="-1">Choose</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+            </div>
             <br>
+            <div class="row">
+                <div class="col-25">
+                    <label for="status">Current Status:  </label>
+                </div>
+                <div class="col-75">
+                    <select name="status" id="status">
+                        <option value="-1">Choose</option>
+                        <option value="Permanently Blocked">Permanently Blocked</option>
+                        <option value="Blocked till L-U">Blocked till L-U</option>
+                        <option value="Blocked till L-11">Blocked till L-11</option>
+                        <option value="Unblocked">Unblocked</option>
+                    </select>
+                </div>
+            </div>
             <br>
-            <label for="department">Department:  </label>
-            <select name="department" id="department">
-                <option value="-1">Choose</option>
-                <option value="Chemical Engineering">Chemical Engineering</option>
-                <option value="Civil Engineering">Civil Engineering</option>
-                <option value="Computer Science Engineering">Computer Science Engineering</option>
-                <option value="Electrical Engineering">Electrical Engineering</option>
-                <option value="Electronics and Communication Engineering">Electronics and Communication Engineering</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                <option value="Metallurgical and Materials Science">Metallurgical and Materials Engineering</option>
-            </select>
+            <div class="row">
+                <div class="col-25">
+                    <label for="contact">Contact Number:  </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" name="contact" id="contact">
+                </div>
+            </div>
             <br>
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email: </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="email" name="email">
+                </div>
+            </div>
             <br>
-            <label for="batch">Batch:  </label>
-            <select name="batch" id="batch">
-                <option value="-1">Choose</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-            </select>
+            <div class="row">
+                <div class="col-25">
+                    <label for="resumeLink">Resume Link:  </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="resumeLink" name="resumeLink">
+                </div>
+            </div>
             <br>
-            <br>
-            <label for="status">Current Status:  </label>
-            <select name="status" id="status">
-                <option value="-1">Choose</option>
-                <option value="Permanently Blocked">Permanently Blocked</option>
-                <option value="Blocked till L-U">Blocked till L-U</option>
-                <option value="Blocked till L-11">Blocked till L-11</option>
-                <option value="Unblocked">Unblocked</option>
-            </select>
-            <br>
-            <br>
-            <label for="contact">Contact Number:  </label>
-            <input type="text" name="contact" id="contact">
-            <br>
-            <br>
-            <label for="email">Email: </label>
-            <input type="text" id="email" name="email">
-            <br>
-            <br>
-            <label for="resumeLink">Resume Link:  </label>
-            <input type="text" id="resumeLink" name="resumeLink">
-            <br>
-            <br>
-            <input type="submit" value="submit">
+            <div class="row">
+                <input type="submit" value="submit">
+            </div>
         </form>
     </div>
     
