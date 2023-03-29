@@ -1,4 +1,5 @@
-const express = require("express");
+// $(document).ready(function(){
+    const express = require("express");
 
 const mongoose = require('mongoose')
 main().catch(err=> console.log(err));
@@ -49,6 +50,9 @@ const studentSchema = new mongoose.Schema({
     },
     contact: String,
     email: String,
+    offer: [{
+        type: offerSchema
+    }],
     resumeLink: String
 })
 
@@ -68,6 +72,65 @@ const demo = new Student({
 
 
 // demo.save();
+/////////////////////////////////////////////////////////////////////////////////////////
+const offerSchema = new mongoose.Schema({
+    _offerID: {
+        type: String,
+        unique: true,
+        index: true,
+        required: true
+    },
+    CTC: {
+        type: String,
+        required: true
+    },
+    company: companySchema,
+    offerReleaseDate: String
+})
+
+const Offer = new mongoose.model('offer' , offerSchema)
+
+/////////////////////////////////////////////////////////////////////////////////////////
+const companySchema = new mongoose.Schema({
+    _companyID: {
+        type: String,
+        unique: true,
+        index: true,
+        required: true
+    },
+    CRC: {
+        type: String,
+        required: true
+    },
+    HRDetails: {
+        type: String,
+        required: true
+    },
+    date: String,
+    jobCategory: [{
+        type: jobDetailSchema
+    }]
+})
+
+const Company = new mongoose.model('Company' , companySchema)
+
+/////////////////////////////////////////////////////////////////////////////////////////
+const jobDetailSchema = new mongoose.Schema({
+    _jobID: {
+        type: String,
+        unique: true,
+        index: true,
+        required: true
+    },
+    CTC: String,
+    role: String,
+    jobDetails: String
+})
+
+const JobDetail = new mongoose.model('JobDetail' , jobDetailSchema)
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 
 app.get("/", function(req,res){
     res.render("home");
@@ -78,19 +141,28 @@ app.post("/", function(req,res){
 })
 
 app.get("/studentData" , function(req,res){
-
+    res.render("studentData",{message: ""})
 })
 
 app.post("/studentData" , function(req,res){
     console.log(req.body);
     var data = new Student(req.body);
     data.save() . then(item=>{
-        res.render("studentData");
+        res.render("studentData" , {message: "Student Data saved successfully"} );
     }) .catch (err=>{
-        res.status(400).send("Enrollment already saved in database");
+        res.status(400).render("studentData", {message: "Enrollment already saved in database"});
     })
+})
+
+// $(".updateButton").click(function(){
+//     alert("Update Button Clicked");
+// })
+
+document.getElementById("updateButton").addEventListener("click" , function(){
+    alert("clicked update button");
 })
 
 app.listen(3000, function(){
     console.log("server is running on port 3000");
 })
+// });
